@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-void: #0a0a0b;
+  --color-charcoal: #121214;
+  --color-graphite: #1a1a1d;
+  --color-aurum: #c9a962;
+  --color-aurum-light: #e8d5a3;
+  --color-platinum: #e8e8e8;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-platinum);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(201, 169, 98, 0.3);
+  color: var(--color-platinum);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-charcoal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-graphite);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-aurum);
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-aurum-light) 0%, var(--color-aurum) 50%, var(--color-aurum-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-luxury {
+    background: linear-gradient(180deg, var(--color-void) 0%, var(--color-charcoal) 100%);
+  }
+
+  .glow-aurum {
+    box-shadow: 0 0 40px rgba(201, 169, 98, 0.15);
+  }
+
+  .glow-aurum-strong {
+    box-shadow: 0 0 60px rgba(201, 169, 98, 0.25);
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(135deg, var(--color-aurum), transparent) 1;
+  }
+
+  /* GPU Acceleration */
+  .gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Text Balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Animation Classes */
+@layer components {
+  .animate-in {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .animate-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  .animate-in-right {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  .animate-in-scale {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Magnetic Button Effect Base */
+.magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Page Transition Overlay */
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-void);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Ambient Background */
+.ambient-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 169, 98, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(80px);
+}
