@@ -42,19 +42,19 @@ export default function ContactPage() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'hello@studioaureum.com',
-      href: 'mailto:hello@studioaureum.com',
+      value: 'andy.li.zhang2010@gmail.com',
+      href: 'mailto:andy.li.zhang2010@gmail.com',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+1 (603) 306-7508',
+      href: 'tel:+16033067508',
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'New York, NY',
+      value: 'Hanover, New Hampshire',
       href: '#',
     },
     {
