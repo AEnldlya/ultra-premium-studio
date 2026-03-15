@@ -13,6 +13,7 @@ import { TiltCard } from '@/components/TiltCard';
 import { MagneticButton } from '@/components/MagneticButton';
 import { Footer } from '@/components/Footer';
 import { FloatingShapes } from '@/components/FloatingShapes';
+import { AnimatedImage, AnimatedImageGrid } from '@/components/AnimatedImage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -232,6 +233,35 @@ export default function HomePage() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Image Gallery Section */}
+      <section className="relative py-16 lg:py-section">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
+          <ScrollReveal className="text-center mb-12 lg:mb-16">
+            <span className="text-aurum text-caption font-medium tracking-wider uppercase mb-4 block">
+              Our Work
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-display-md text-platinum mb-4">
+              Visual Excellence
+            </h2>
+            <p className="text-silver text-base sm:text-lg lg:text-body-lg max-w-2xl mx-auto">
+              Every project is crafted with attention to detail and cinematic quality.
+            </p>
+          </ScrollReveal>
+
+          <AnimatedImageGrid
+            images={[
+              { src: '/images/abstract-gold.jpg', alt: 'Abstract gold design', title: 'Brand Identity' },
+              { src: '/images/geometric.jpg', alt: 'Geometric patterns', title: 'Web Design' },
+              { src: '/images/tech-abstract.jpg', alt: 'Technology abstract', title: 'Development' },
+              { src: '/images/luxury-dark.jpg', alt: 'Luxury dark theme', title: 'Premium UI' },
+              { src: '/images/dark-gradient.jpg', alt: 'Dark gradient', title: 'Motion Design' },
+              { src: '/images/hero-bg.jpg', alt: 'Hero background', title: 'Digital Experience' },
+            ]}
+            columns={3}
+          />
         </div>
       </section>
 
