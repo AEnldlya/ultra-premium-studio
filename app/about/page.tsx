@@ -289,14 +289,150 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Hanover & Dartmouth Section */}
+      <section className="relative py-section border-y border-white/5">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <ScrollReveal>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="/images/hanover-nh.jpg"
+                  alt="Hanover, New Hampshire"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-void/60 to-transparent" />
+                <div className="absolute bottom-6 left-6">
+                  <span className="text-aurum text-caption font-medium tracking-wider uppercase">Our Home</span>
+                  <h3 className="font-display text-2xl text-platinum mt-2">Hanover, NH</h3>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <span className="text-aurum text-caption font-medium tracking-wider uppercase mb-4 block">
+                Rooted in Community
+              </span>
+              <h2 className="font-display text-display-md text-platinum mb-6">
+                From the Upper Valley to the World
+              </h2>
+              <p className="text-silver text-body-lg mb-6 leading-relaxed">
+                Based in Hanover, New Hampshire — home to Dartmouth College and a vibrant community 
+                of innovators. The Upper Valley has shaped our approach to business: combining 
+                academic excellence with practical problem-solving.
+              </p>
+              <p className="text-silver text-body-md leading-relaxed">
+                We believe local businesses deserve world-class digital presence. Our mission is to 
+                bring enterprise-quality websites to the community that raised us, helping neighbors 
+                compete in the global marketplace.
+              </p>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Robotics Background Section */}
+      <section className="relative py-section">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <ScrollReveal className="order-2 lg:order-1">
+              <span className="text-aurum text-caption font-medium tracking-wider uppercase mb-4 block">
+                Our Foundation
+              </span>
+              <h2 className="font-display text-display-md text-platinum mb-6">
+                Built on Robotics Excellence
+              </h2>
+              <p className="text-silver text-body-lg mb-6 leading-relaxed">
+                Our journey began in robotics. As founding members of a championship FIRST Robotics 
+                team, we learned what it takes to build something extraordinary from the ground up.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                <div className="p-4 bg-surface border border-white/5 rounded-xl">
+                  <div className="font-display text-3xl text-aurum mb-2">State Champs</div>
+                  <p className="text-silver text-body-sm">First year competing</p>
+                </div>
+                <div className="p-4 bg-surface border border-white/5 rounded-xl">
+                  <div className="font-display text-3xl text-aurum mb-2">#1 Rookie</div>
+                  <p className="text-silver text-body-sm">Team in the region</p>
+                </div>
+              </div>
+              <p className="text-silver text-body-md leading-relaxed">
+                That same drive for precision, innovation, and teamwork now powers every website we build. 
+                We bring championship-level dedication to helping local businesses succeed online.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2} className="order-1 lg:order-2">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="/images/robotics.jpg"
+                  alt="Robotics competition"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-void/60 to-transparent" />
+                <div className="absolute bottom-6 left-6">
+                  <span className="text-aurum text-caption font-medium tracking-wider uppercase">Where It Started</span>
+                  <h3 className="font-display text-2xl text-platinum mt-2">FIRST Robotics</h3>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Dartmouth Connection */}
+      <section className="relative py-section border-y border-white/5">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <ScrollReveal>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="/images/dartmouth.jpg"
+                  alt="Dartmouth College"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-void/60 to-transparent" />
+                <div className="absolute bottom-6 left-6">
+                  <span className="text-aurum text-caption font-medium tracking-wider uppercase">Academic Excellence</span>
+                  <h3 className="font-display text-2xl text-platinum mt-2">Dartmouth College</h3>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <span className="text-aurum text-caption font-medium tracking-wider uppercase mb-4 block">
+                Inspired by Excellence
+              </span>
+              <h2 className="font-display text-display-md text-platinum mb-6">
+                Ivy League Standards, Local Heart
+              </h2>
+              <p className="text-silver text-body-lg mb-6 leading-relaxed">
+                Growing up in the shadow of Dartmouth College instilled in us a commitment to excellence. 
+                We apply the same rigorous standards to web development that the College applies to education.
+              </p>
+              <p className="text-silver text-body-md leading-relaxed">
+                But we're not just about prestige — we're about community. Every website we build is 
+                designed to help our neighbors thrive, bringing world-class digital presence to local 
+                businesses that deserve to be seen.
+              </p>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section - Template for future real stats */}
+      {/*
       <section className="relative py-section">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
+            {[
+              { value: 0, suffix: '+', label: 'Projects Delivered' },
+              { value: 0, suffix: '+', label: 'Years Experience' },
+              { value: 0, suffix: '%', label: 'Client Satisfaction' },
+              { value: 0, suffix: '', label: 'Awards Won' },
+            ].map((stat, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
                 <div className="text-center p-8 bg-surface border border-white/5 rounded-2xl">
-                  <stat.icon size={32} className="text-aurum mx-auto mb-4" />
+                  <Award size={32} className="text-aurum mx-auto mb-4" />
                   <div className="font-display text-display-md text-platinum mb-2">
                     <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                   </div>
@@ -307,6 +443,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      */}
 
       <Footer />
     </main>
