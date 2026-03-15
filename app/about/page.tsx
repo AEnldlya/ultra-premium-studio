@@ -93,23 +93,7 @@ export default function AboutPage() {
     },
   ];
 
-  const team = [
-    {
-      name: 'Andy Zhang',
-      role: 'Founder & Lead Developer',
-      image: 'bg-gradient-to-br from-aurum/30 to-aurum/5',
-    },
-    {
-      name: 'Owen Osterberg',
-      role: 'Founder, Assistant Developer, Head Business Strategy',
-      image: 'bg-gradient-to-br from-blue-500/30 to-blue-500/5',
-    },
-    {
-      name: 'Ben Pastel',
-      role: 'Technical Lead',
-      image: 'bg-gradient-to-br from-purple-500/30 to-purple-500/5',
-    },
-  ];
+  // Team section removed - company operates as a unified studio
 
   const stats = [
     { icon: Award, value: 47, suffix: '', label: 'Websites Built' },
@@ -248,31 +232,6 @@ export default function AboutPage() {
                     <p className="text-silver text-body-md">{milestone.description}</p>
                   </div>
                   <div className="hidden lg:block lg:w-1/2" />
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="relative py-section border-y border-white/5">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
-          <ScrollReveal className="text-center mb-16">
-            <span className="text-aurum text-caption font-medium tracking-wider uppercase mb-4 block">
-              The Team
-            </span>
-            <h2 className="font-display text-display-md text-platinum">
-              Meet the team
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {team.map((member, index) => (
-              <ScrollReveal key={index} delay={index * 0.1}>
-                <div className="group p-6 bg-surface border border-white/5 rounded-2xl hover:border-aurum/30 transition-colors duration-300">
-                  <h3 className="font-display text-lg text-platinum mb-2">{member.name}</h3>
-                  <p className="text-silver text-body-sm">{member.role}</p>
                 </div>
               </ScrollReveal>
             ))}

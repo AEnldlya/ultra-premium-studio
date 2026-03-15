@@ -71,20 +71,14 @@ export default function ContactPage() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'owenosterberg10@gmail.com',
-      href: 'mailto:owenosterberg10@gmail.com',
-    },
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'andy.li.zhang2010@gmail.com',
-      href: 'mailto:andy.li.zhang2010@gmail.com',
+      value: 'studio.aureum.reachout@gmail.com',
+      href: 'mailto:studio.aureum.reachout@gmail.com',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (603) 306-7508',
-      href: 'tel:+16033067508',
+      value: '(603) 678-0701',
+      href: 'tel:6036780701',
     },
     {
       icon: MapPin,
