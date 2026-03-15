@@ -81,12 +81,6 @@ export default function ContactPage() {
       href: 'tel:6036780701',
     },
     {
-      icon: MapPin,
-      label: 'Location',
-      value: 'Hanover, New Hampshire',
-      href: '#',
-    },
-    {
       icon: Clock,
       label: 'Availability',
       value: 'Mon-Fri, 9am-6pm EST',
