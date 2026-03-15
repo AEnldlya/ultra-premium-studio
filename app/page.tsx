@@ -163,15 +163,16 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* Stats Section */}
+      {/* Stats Section - Template for future real stats */}
+      {/* 
       <section className="relative py-16 lg:py-24 border-y border-white/5">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-12">
             {[
-              { value: 127, suffix: '+', label: 'Projects Delivered' },
-              { value: 15, suffix: '+', label: 'Years Experience' },
-              { value: 98, suffix: '%', label: 'Client Satisfaction' },
-              { value: 24, suffix: '', label: 'Awards Won' },
+              { value: 0, suffix: '+', label: 'Projects Delivered' },
+              { value: 0, suffix: '+', label: 'Years Experience' },
+              { value: 0, suffix: '%', label: 'Client Satisfaction' },
+              { value: 0, suffix: '', label: 'Awards Won' },
             ].map((stat, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
                 <div className="text-center lg:text-left">
@@ -185,6 +186,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Services Section */}
       <section className="relative py-16 lg:py-section">
