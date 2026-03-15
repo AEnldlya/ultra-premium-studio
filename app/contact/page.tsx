@@ -45,7 +45,7 @@ export default function ContactPage() {
       localStorage.setItem('contactSubmissions', JSON.stringify(existingSubmissions));
 
       // Log to console
-      console.log('\n🚨 NEW FORM SUBMISSION 🚨');
+      console.log('\nNEW FORM SUBMISSION');
       console.log('========================');
       console.log(`Name: ${formState.name}`);
       console.log(`Email: ${formState.email}`);

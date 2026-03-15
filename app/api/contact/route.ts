@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     fs.writeFileSync(submissionsPath, JSON.stringify(submissions, null, 2));
 
     // Log to console for immediate notification
-    console.log('\n🚨 NEW FORM SUBMISSION 🚨');
+    console.log('\nNEW FORM SUBMISSION');
     console.log('========================');
     console.log(`Name: ${data.name}`);
     console.log(`Email: ${data.email}`);
