@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface TiltCardProps {
@@ -22,9 +22,15 @@ export function TiltCard({
   const [transform, setTransform] = useState({ rotateX: 0, rotateY: 0 });
   const [glarePosition, setGlarePosition] = useState({ x: 50, y: 50 });
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    // Check if device supports hover (not touch)
+    setIsTouchDevice(window.matchMedia('(hover: none)').matches);
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
+    if (isTouchDevice || !ref.current) return;
     
     const { left, top, width, height } = ref.current.getBoundingClientRect();
     const x = (e.clientX - left) / width;
@@ -45,6 +51,11 @@ export function TiltCard({
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
+
+  // On touch devices, just render children without tilt effect
+  if (isTouchDevice) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div

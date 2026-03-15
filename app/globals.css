@@ -34,22 +34,49 @@ body {
   color: var(--color-platinum);
 }
 
-/* Scrollbar */
+/* Scrollbar - Hidden on mobile */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0px;
+  background: transparent;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--color-charcoal);
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--color-charcoal);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-graphite);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-aurum);
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--color-graphite);
-  border-radius: 4px;
+/* Mobile Touch Improvements */
+@media (hover: none) {
+  .magnetic-btn {
+    transform: none !important;
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-aurum);
+/* Prevent horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Better mobile text sizing */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 /* Custom Utilities */
