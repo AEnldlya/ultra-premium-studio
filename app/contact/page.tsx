@@ -75,6 +75,12 @@ export default function ContactPage() {
       href: 'mailto:owenosterberg10@gmail.com',
     },
     {
+      icon: Mail,
+      label: 'Email',
+      value: 'andy.li.zhang2010@gmail.com',
+      href: 'mailto:andy.li.zhang2010@gmail.com',
+    },
+    {
       icon: Phone,
       label: 'Phone',
       value: '+1 (603) 306-7508',
