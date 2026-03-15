@@ -154,6 +154,23 @@ export default function ServicesPage() {
     },
   ];
 
+  // Maintenance plan details
+  const maintenancePlan = {
+    title: 'Monthly Maintenance',
+    price: '$40/month',
+    description: 'Keep your website running smoothly with our comprehensive maintenance plan.',
+    features: [
+      'Website hosting included',
+      'Security updates & patches',
+      'Regular backups',
+      'Minor content changes (up to 2/month)',
+      'Performance monitoring',
+      'SSL certificate renewal',
+      'Priority support',
+      '99.9% uptime guarantee',
+    ],
+  };
+
   const faqs = [
     {
       question: 'What is included in the $1000 package?',
@@ -293,6 +310,52 @@ export default function ServicesPage() {
                 </div>
               </ScrollReveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Maintenance Plan Section */}
+      <section className="relative py-section bg-surface/30 border-y border-white/5">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <ScrollReveal>
+              <span className="text-aurum text-caption font-medium tracking-wider uppercase mb-4 block">
+                Ongoing Support
+              </span>
+              <h2 className="font-display text-display-md text-platinum mb-4">
+                {maintenancePlan.title}
+              </h2>
+              <p className="text-silver text-body-lg mb-6">
+                {maintenancePlan.description}
+              </p>
+              <div className="flex items-baseline gap-2 mb-8">
+                <span className="font-display text-4xl text-aurum">{maintenancePlan.price}</span>
+                <span className="text-silver">after your site is live</span>
+              </div>
+              <MagneticButton>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-aurum/10 border border-aurum/30 text-aurum rounded-full font-medium hover:bg-aurum hover:text-void transition-all duration-300"
+                >
+                  Add Maintenance Plan
+                  <ArrowRight size={16} />
+                </Link>
+              </MagneticButton>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <div className="p-8 bg-surface border border-white/5 rounded-2xl">
+                <h3 className="font-display text-xl text-platinum mb-6">What's Included</h3>
+                <ul className="space-y-4">
+                  {maintenancePlan.features.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <Check size={18} className="text-aurum mt-1 shrink-0" />
+                      <span className="text-silver text-body-md">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

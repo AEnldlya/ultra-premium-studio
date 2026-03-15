@@ -83,10 +83,11 @@ export default function ContactPage() {
   ];
 
   const budgetOptions = [
+    '$1,000 (One-time website)',
+    '$40/month (Maintenance plan)',
     '$1,000 - $2,500',
     '$2,500 - $5,000',
-    '$5,000 - $10,000',
-    '$10,000+',
+    '$5,000+',
   ];
 
   return (
