@@ -21,28 +21,32 @@ export default function HomePage() {
   const triggersRef = useRef<ScrollTrigger[]>([]);
 
   useEffect(() => {
+    // Check if touch device for reduced animations
+    const isTouch = window.matchMedia('(hover: none)').matches;
+    
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.5 });
+      // Faster animations on mobile
+      const tl = gsap.timeline({ delay: isTouch ? 0.1 : 0.3 });
 
       tl.from('.hero-line', {
-        y: 100,
+        y: isTouch ? 30 : 100,
         opacity: 0,
-        duration: 1,
-        stagger: 0.15,
+        duration: isTouch ? 0.5 : 1,
+        stagger: isTouch ? 0.08 : 0.15,
         ease: 'power4.out',
       })
       .from('.hero-subtitle', {
-        y: 30,
+        y: isTouch ? 15 : 30,
         opacity: 0,
-        duration: 0.8,
+        duration: isTouch ? 0.4 : 0.8,
         ease: 'power3.out',
-      }, '-=0.5')
+      }, '-=0.3')
       .from('.hero-cta', {
-        y: 30,
+        y: isTouch ? 15 : 30,
         opacity: 0,
-        duration: 0.8,
+        duration: isTouch ? 0.4 : 0.8,
         ease: 'power3.out',
-      }, '-=0.5');
+      }, '-=0.3');
     }, heroRef);
 
     return () => {
@@ -88,7 +92,7 @@ export default function HomePage() {
       </div>
 
       {/* Hero Section with 3D Shapes */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center pt-20 lg:pt-24 overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[90vh] sm:min-h-screen flex items-center pt-20 lg:pt-24 overflow-hidden">
         {/* 3D Floating Shapes - Hidden on mobile for performance */}
         <div className="hidden md:block">
           <Suspense fallback={null}>

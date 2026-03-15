@@ -8,8 +8,16 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [displayChildren, setDisplayChildren] = useState(children);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
+    // Skip transition on initial load
+    if (isInitialLoad) {
+      setIsInitialLoad(false);
+      setDisplayChildren(children);
+      return;
+    }
+
     if (pathname) {
       setIsTransitioning(true);
       
@@ -20,7 +28,12 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
 
       return () => clearTimeout(timer);
     }
-  }, [pathname, children]);
+  }, [pathname, children, isInitialLoad]);
+
+  // On initial load, just render children without transition
+  if (isInitialLoad) {
+    return <>{children}</>;
+  }
 
   return (
     <>
