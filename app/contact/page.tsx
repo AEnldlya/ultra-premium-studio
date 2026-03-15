@@ -32,21 +32,33 @@ export default function ContactPage() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formState),
-      });
+      // Create submission object
+      const submission = {
+        ...formState,
+        submittedAt: new Date().toISOString(),
+        id: Date.now().toString(),
+      };
+
+      // Store in localStorage
+      const existingSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+      existingSubmissions.push(submission);
+      localStorage.setItem('contactSubmissions', JSON.stringify(existingSubmissions));
+
+      // Log to console
+      console.log('\n🚨 NEW FORM SUBMISSION 🚨');
+      console.log('========================');
+      console.log(`Name: ${formState.name}`);
+      console.log(`Email: ${formState.email}`);
+      console.log(`Company: ${formState.company || 'N/A'}`);
+      console.log(`Budget: ${formState.budget || 'N/A'}`);
+      console.log(`Message: ${formState.message}`);
+      console.log(`Time: ${submission.submittedAt}`);
+      console.log('========================\n');
+
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      const data = await response.json();
-      
-      if (data.success) {
-        setIsSubmitted(true);
-      } else {
-        alert('Failed to send message. Please try again.');
-      }
+      setIsSubmitted(true);
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Failed to send message. Please try again.');
@@ -198,6 +210,9 @@ export default function ContactPage() {
                       <p className="text-silver text-body-md">
                         Thank you for reaching out. We&apos;ll get back to you within 24 hours.
                       </p>
+                      <p className="text-silver/60 text-sm mt-4">
+                        Your submission has been saved locally.
+                      </p>
                     </motion.div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
@@ -324,20 +339,20 @@ export default function ContactPage() {
           <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-6">
             {[
               {
-                q: 'What is your typical timeline?',
-                a: 'Most projects range from 8-16 weeks depending on scope. We provide detailed timelines during our proposal phase.',
+                q: 'What is included in the $1000 package?',
+                a: 'Everything you need to get online: a custom domain, 5 professionally designed pages, mobile-responsive layout, cinematic animations, fast performance, and SEO optimization. No hidden fees.',
               },
               {
-                q: 'Do you work with startups?',
-                a: 'Absolutely. We love working with ambitious startups and have flexible engagement models to accommodate different budgets.',
+                q: 'How long does it take to build?',
+                a: 'Most websites are completed within 1-2 weeks from start to finish. We work efficiently without sacrificing quality.',
               },
               {
-                q: 'What technologies do you use?',
-                a: 'We specialize in Next.js, React, TypeScript, and Tailwind. For animations, we use GSAP and Framer Motion.',
+                q: 'What if I need more than 5 pages?',
+                a: 'We can add additional pages for $100 each. Just let us know what you need during our discovery call.',
               },
               {
-                q: 'Do you offer maintenance?',
-                a: 'Yes, we offer monthly retainer packages for ongoing support, updates, and continuous improvement.',
+                q: 'Do you offer ongoing support?',
+                a: 'Yes! We offer a $40/month maintenance package that includes hosting, security updates, and minor content changes.',
               },
             ].map((faq, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>

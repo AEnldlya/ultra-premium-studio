@@ -13,7 +13,7 @@ import { TiltCard } from '@/components/TiltCard';
 import { MagneticButton } from '@/components/MagneticButton';
 import { Footer } from '@/components/Footer';
 import { FloatingShapes } from '@/components/FloatingShapes';
-import { AnimatedImage, AnimatedImageGrid } from '@/components/AnimatedImage';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -253,17 +253,31 @@ export default function HomePage() {
             </p>
           </ScrollReveal>
 
-          <AnimatedImageGrid
-            images={[
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            {[
               { src: '/images/abstract-gold.jpg', alt: 'Abstract gold design', title: 'Brand Identity' },
               { src: '/images/geometric.jpg', alt: 'Geometric patterns', title: 'Web Design' },
               { src: '/images/tech-abstract.jpg', alt: 'Technology abstract', title: 'Development' },
               { src: '/images/luxury-dark.jpg', alt: 'Luxury dark theme', title: 'Premium UI' },
               { src: '/images/dark-gradient.jpg', alt: 'Dark gradient', title: 'Motion Design' },
               { src: '/images/hero-bg.jpg', alt: 'Hero background', title: 'Digital Experience' },
-            ]}
-            columns={3}
-          />
+            ].map((image, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-surface">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-void/80 via-void/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-6">
+                    <h3 className="font-display text-lg text-platinum">{image.title}</h3>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
