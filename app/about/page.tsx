@@ -285,10 +285,12 @@ export default function AboutPage() {
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-aurum/20 via-surface to-blue-500/20">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-display text-6xl text-white/10">NH</span>
-                </div>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="/images/hanover-nh.png"
+                  alt="Hanover, New Hampshire"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-void/60 to-transparent" />
                 <div className="absolute bottom-6 left-6">
                   <span className="text-aurum text-caption font-medium tracking-wider uppercase">Our Home</span>
@@ -351,10 +353,12 @@ export default function AboutPage() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2} className="order-1 lg:order-2">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500/20 via-surface to-purple-500/20">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-display text-6xl text-white/10">FRC</span>
-                </div>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="/images/robotics.png"
+                  alt="FIRST Robotics Competition"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-void/60 to-transparent" />
                 <div className="absolute bottom-6 left-6">
                   <span className="text-aurum text-caption font-medium tracking-wider uppercase">Where It Started</span>
@@ -371,10 +375,12 @@ export default function AboutPage() {
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-green-500/20 via-surface to-blue-500/20">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-display text-6xl text-white/10">DC</span>
-                </div>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="/images/dartmouth.png"
+                  alt="Dartmouth College"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-void/60 to-transparent" />
                 <div className="absolute bottom-6 left-6">
                   <span className="text-aurum text-caption font-medium tracking-wider uppercase">Academic Excellence</span>
