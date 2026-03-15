@@ -5,6 +5,74 @@ Built a $250k-tier multi-page website with cinematic animations, 3D geometric sh
 
 ---
 
+## $250k Agency Design Standards
+
+### Modern Typography (Multiple Fonts, Custom Per Site)
+- **Use multiple high-quality font pairings** - customize to match brand personality
+- **Each section has unique but cohesive typographic hierarchy**
+- **Avoid generic/default fonts** - typography must feel curated and intentional
+- **Example pairings**:
+  - Display: Space Grotesk (bold, modern)
+  - Body: Inter (clean, readable)
+  - Accent: JetBrains Mono or similar for technical sections
+
+### Images & Placement (Match Original Website Layout)
+- **Place photos in correct sections** based on original website structure
+- **Align to grid** - properly cropped, masked, or framed
+- **No floating/random placement** - every photo belongs exactly where it is
+- **Use object-fit, aspect ratios, and masking** for professional presentation
+
+### Animations (21st.dev-Inspired, Custom Per Site)
+- **Smooth, physics-based easing** - no linear or default easings
+- **Subtle micro-interactions** - hover states, focus states, active states
+- **Scroll-linked motion** - parallax, pin, scrub animations
+- **Section-specific animation logic** - unique animations per section
+- **Dynamic but minimal transitions** - engineered, not decorative
+- **Avoid floaty/bouncy/template animations** - must support content clarity
+
+**Animation Principles:**
+```tsx
+// Physics-based easing
+const easing = {
+  smooth: [0.25, 0.1, 0.25, 1],      // cubic-bezier
+  bounce: [0.68, -0.55, 0.265, 1.55], // slight overshoot
+  expo: [0.19, 1, 0.22, 1],           // expo out
+  elastic: [0.175, 0.885, 0.32, 1.275] // elastic
+};
+
+// Scroll-linked with scrub
+scrollTrigger: {
+  scrub: 1, // smooth scroll-linked animation
+  pin: true, // pin section during animation
+}
+```
+
+### Shapes & Graphic Elements (Integrated, Not Floating)
+- **Connected to layout** - not floating independently
+- **Use shapes to:**
+  - Frame content
+  - Create depth
+  - Guide user's eye
+  - Reinforce brand identity
+- **Interact through layering, masking, parallax** - not stickers on top
+- **Directional motion** - shapes move with purpose
+
+### Customization Requirement
+- **All design decisions fully customized** to specific website
+- **Do NOT reuse patterns** from other sites
+- **Do NOT apply generic templates**
+- **Handcrafted feel** - tailored to brand identity, content, structure
+
+### Overall Aesthetic ($100k+ Agency Build)
+- **Intentional spacing** - generous whitespace, breathing room
+- **Strong visual hierarchy** - clear focal points
+- **Cohesive color palette** - limited, purposeful colors
+- **Professional micro-interactions** - every detail considered
+- **Smooth, cinematic transitions** - polished feel
+- **Zero AI-looking elements** - no generic gradients, shapes, or layouts
+
+---
+
 ## Technical Stack
 
 ### Core Technologies

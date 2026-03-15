@@ -101,7 +101,7 @@ export default function AboutPage() {
     },
     {
       name: 'Owen Osterberg',
-      role: 'Creative Director',
+      role: 'Founder, Assistant Developer, Head Business Strategy',
       image: 'bg-gradient-to-br from-blue-500/30 to-blue-500/5',
     },
     {
@@ -270,17 +270,8 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {team.map((member, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
-                <div className="group">
-                  <div className={`relative aspect-[3/4] rounded-2xl overflow-hidden mb-4 ${member.image}`}>
-                    <div className="absolute inset-0 bg-surface" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-display text-6xl text-white/20">
-                        {member.name.charAt(0)}
-                      </span>
-                    </div>
-                    <div className="absolute inset-0 bg-aurum/0 group-hover:bg-aurum/10 transition-colors duration-500" />
-                  </div>
-                  <h3 className="font-display text-lg text-platinum">{member.name}</h3>
+                <div className="group p-6 bg-surface border border-white/5 rounded-2xl hover:border-aurum/30 transition-colors duration-300">
+                  <h3 className="font-display text-lg text-platinum mb-2">{member.name}</h3>
                   <p className="text-silver text-body-sm">{member.role}</p>
                 </div>
               </ScrollReveal>
