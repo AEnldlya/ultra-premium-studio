@@ -5,11 +5,16 @@ import nodemailer from 'nodemailer';
 
 // Create email transporter
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER || 'studio.aureum.reachout@gmail.com',
     pass: process.env.EMAIL_PASS || '',
   },
+  tls: {
+    rejectUnauthorized: false
+  }
 });
 
 export async function POST(request: NextRequest) {
@@ -70,7 +75,7 @@ export async function POST(request: NextRequest) {
     `;
 
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'studio.aureum.reachout@gmail.com',
+      from: `"Website Contact Form" <${process.env.EMAIL_USER || 'studio.aureum.reachout@gmail.com'}>`,
       to: 'studio.aureum.reachout@gmail.com',
       subject: `New Contact Form Submission from ${data.name}`,
       html: emailHtml,
