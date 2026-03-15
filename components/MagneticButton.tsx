@@ -18,7 +18,7 @@ export function MagneticButton({
 }: MagneticButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(true); // Default to true for SSR
 
   useEffect(() => {
     setIsTouchDevice(window.matchMedia('(hover: none)').matches);
@@ -42,12 +42,12 @@ export function MagneticButton({
     setPosition({ x: 0, y: 0 });
   };
 
-  // On touch devices, render without magnetic effect
+  // On touch devices, render as static div (no motion, no cursor effects)
   if (isTouchDevice) {
     return (
-      <button onClick={onClick} className={className}>
+      <div className={className} onClick={onClick}>
         {children}
-      </button>
+      </div>
     );
   }
 
@@ -80,7 +80,7 @@ export function MagneticWrapper({
 }: MagneticWrapperProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(true);
 
   useEffect(() => {
     setIsTouchDevice(window.matchMedia('(hover: none)').matches);

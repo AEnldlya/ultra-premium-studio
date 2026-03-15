@@ -22,10 +22,9 @@ export function TiltCard({
   const [transform, setTransform] = useState({ rotateX: 0, rotateY: 0 });
   const [glarePosition, setGlarePosition] = useState({ x: 50, y: 50 });
   const [isHovered, setIsHovered] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(true); // Default to true for SSR
 
   useEffect(() => {
-    // Check if device supports hover (not touch)
     setIsTouchDevice(window.matchMedia('(hover: none)').matches);
   }, []);
 
