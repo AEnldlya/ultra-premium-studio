@@ -8,13 +8,28 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER || 'studio.aureum.reachout@gmail.com',
-    pass: process.env.EMAIL_PASS || '', // App password needed
+    pass: process.env.EMAIL_PASS || '',
   },
 });
 
 export async function POST(request: NextRequest) {
   try {
-    const data = await request.json();
+    console.log('API: Received contact form submission');
+    
+    let data;
+    try {
+      data = await request.json();
+      console.log('API: Parsed data:', data);
+    } catch (parseError) {
+      console.error('API: Failed to parse JSON:', parseError);
+      return NextResponse.json({ success: false, error: 'Invalid JSON data' }, { status: 400 });
+    }
+    
+    // Validate required fields
+    if (!data.name || !data.email || !data.message) {
+      console.error('API: Missing required fields');
+      return NextResponse.json({ success: false, error: 'Missing required fields' }, { status: 400 });
+    }
     
     // Add timestamp
     const submission = {
@@ -24,16 +39,22 @@ export async function POST(request: NextRequest) {
     };
 
     // Save to JSON file
-    const submissionsPath = path.join(process.cwd(), 'submissions.json');
-    let submissions = [];
-    
-    if (fs.existsSync(submissionsPath)) {
-      const fileContent = fs.readFileSync(submissionsPath, 'utf8');
-      submissions = JSON.parse(fileContent);
+    try {
+      const submissionsPath = path.join(process.cwd(), 'submissions.json');
+      let submissions = [];
+      
+      if (fs.existsSync(submissionsPath)) {
+        const fileContent = fs.readFileSync(submissionsPath, 'utf8');
+        submissions = JSON.parse(fileContent);
+      }
+      
+      submissions.push(submission);
+      fs.writeFileSync(submissionsPath, JSON.stringify(submissions, null, 2));
+      console.log('API: Saved to file successfully');
+    } catch (fileError) {
+      console.error('API: File save error:', fileError);
+      // Continue even if file save fails
     }
-    
-    submissions.push(submission);
-    fs.writeFileSync(submissionsPath, JSON.stringify(submissions, null, 2));
 
     // Send email notification
     const emailHtml = `
@@ -57,28 +78,24 @@ export async function POST(request: NextRequest) {
     };
 
     try {
-      await transporter.sendMail(mailOptions);
-      console.log('Email sent successfully');
-    } catch (emailError) {
-      console.error('Email sending failed:', emailError);
-      // Continue even if email fails - data is saved
+      console.log('API: Attempting to send email...');
+      console.log('API: Email user:', process.env.EMAIL_USER || 'studio.aureum.reachout@gmail.com');
+      console.log('API: Has password:', !!process.env.EMAIL_PASS);
+      
+      const emailResult = await transporter.sendMail(mailOptions);
+      console.log('API: Email sent successfully:', emailResult.messageId);
+    } catch (emailError: any) {
+      console.error('API: Email sending failed:', emailError);
+      console.error('API: Error code:', emailError.code);
+      console.error('API: Error response:', emailError.response);
+      // Don't fail the whole request if email fails, but log it
     }
 
-    // Log to console for immediate notification
-    console.log('\n🚨 NEW FORM SUBMISSION 🚨');
-    console.log('========================');
-    console.log(`Name: ${data.name}`);
-    console.log(`Email: ${data.email}`);
-    console.log(`Company: ${data.company || 'N/A'}`);
-    console.log(`Budget: ${data.budget || 'N/A'}`);
-    console.log(`Message: ${data.message}`);
-    console.log(`Time: ${submission.submittedAt}`);
-    console.log('========================\n');
-
+    console.log('API: Submission complete');
     return NextResponse.json({ success: true, id: submission.id });
-  } catch (error) {
-    console.error('Form submission error:', error);
-    return NextResponse.json({ success: false, error: 'Failed to save submission' }, { status: 500 });
+  } catch (error: any) {
+    console.error('API: Form submission error:', error);
+    return NextResponse.json({ success: false, error: error.message || 'Failed to save submission' }, { status: 500 });
   }
 }
 
