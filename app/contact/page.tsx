@@ -32,31 +32,30 @@ export default function ContactPage() {
     setIsSubmitting(true);
     
     try {
-      // Create submission object
+      // Send to API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Failed to submit');
+      }
+
+      // Store in localStorage as backup
       const submission = {
         ...formState,
         submittedAt: new Date().toISOString(),
-        id: Date.now().toString(),
+        id: data.id || Date.now().toString(),
       };
-
-      // Store in localStorage
       const existingSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
       existingSubmissions.push(submission);
       localStorage.setItem('contactSubmissions', JSON.stringify(existingSubmissions));
-
-      // Log to console
-      console.log('\nNEW FORM SUBMISSION');
-      console.log('========================');
-      console.log(`Name: ${formState.name}`);
-      console.log(`Email: ${formState.email}`);
-      console.log(`Company: ${formState.company || 'N/A'}`);
-      console.log(`Budget: ${formState.budget || 'N/A'}`);
-      console.log(`Message: ${formState.message}`);
-      console.log(`Time: ${submission.submittedAt}`);
-      console.log('========================\n');
-
-      // Simulate network delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
       
       setIsSubmitted(true);
     } catch (error) {
