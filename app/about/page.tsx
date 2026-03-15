@@ -4,8 +4,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { ScrollReveal, StaggerReveal } from '@/components/ScrollReveal';
+import { ScrollReveal } from '@/components/ScrollReveal';
 import { LineReveal } from '@/components/TextReveal';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
 import { Footer } from '@/components/Footer';
@@ -19,7 +18,6 @@ export default function AboutPage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Timeline line animation
       const line = timelineRef.current?.querySelector('.timeline-line');
       if (line) {
         const tween = gsap.fromTo(line, 
@@ -48,26 +46,27 @@ export default function AboutPage() {
     };
   }, []);
 
+  // Timeline of how we build websites
   const milestones = [
     {
-      year: '2015',
-      title: 'The Beginning',
-      description: 'Studio Aureum was founded with a vision to bring cinematic quality to digital experiences.',
+      step: '01',
+      title: 'Discovery',
+      description: 'We start by understanding your business, goals, and target audience through in-depth research and strategy sessions.',
     },
     {
-      year: '2018',
-      title: 'Expanding Horizons',
-      description: 'Grew to a team of 12 and opened our second studio location in London.',
+      step: '02',
+      title: 'Design',
+      description: 'Our designers craft pixel-perfect mockups with cinematic animations, ensuring every detail aligns with your vision.',
     },
     {
-      year: '2021',
-      title: 'Industry Recognition',
-      description: 'Won 8 design awards and established partnerships with Fortune 500 companies.',
+      step: '03',
+      title: 'Development',
+      description: 'We build your site with clean, performant code using Next.js, React, and cutting-edge animation libraries.',
     },
     {
-      year: '2024',
-      title: 'Global Reach',
-      description: 'Now serving clients across 23 countries with a team of 40+ creatives and developers.',
+      step: '04',
+      title: 'Launch',
+      description: 'After rigorous testing, we deploy your site and provide training so you can manage it with confidence.',
     },
   ];
 
@@ -96,32 +95,27 @@ export default function AboutPage() {
 
   const team = [
     {
-      name: 'Alexandra Chen',
-      role: 'Founder & Creative Director',
+      name: 'Andy Zhang',
+      role: 'Founder & Lead Developer',
       image: 'bg-gradient-to-br from-aurum/30 to-aurum/5',
     },
     {
-      name: 'Marcus Webb',
-      role: 'Technical Director',
+      name: 'Owen Osterberg',
+      role: 'Creative Director',
       image: 'bg-gradient-to-br from-blue-500/30 to-blue-500/5',
     },
     {
-      name: 'Sofia Rodriguez',
-      role: 'Lead Designer',
+      name: 'Ben Pastel',
+      role: 'Technical Lead',
       image: 'bg-gradient-to-br from-purple-500/30 to-purple-500/5',
-    },
-    {
-      name: 'James Park',
-      role: 'Motion Director',
-      image: 'bg-gradient-to-br from-emerald-500/30 to-emerald-500/5',
     },
   ];
 
   const stats = [
-    { icon: Award, value: 24, suffix: '', label: 'Industry Awards' },
-    { icon: Globe, value: 23, suffix: '', label: 'Countries Served' },
-    { icon: Coffee, value: 50000, suffix: '+', label: 'Cups of Coffee' },
-    { icon: Clock, value: 15, suffix: '+', label: 'Years Experience' },
+    { icon: Award, value: 47, suffix: '', label: 'Websites Built' },
+    { icon: Globe, value: 100, suffix: '%', label: 'Client Satisfaction' },
+    { icon: Coffee, value: 12, suffix: '', label: 'Day Average Delivery' },
+    { icon: Clock, value: 3, suffix: '', label: 'Years Experience' },
   ];
 
   return (
@@ -146,7 +140,7 @@ export default function AboutPage() {
                   transition={{ duration: 0.8, delay: 0.1, ease: 'power4.out' }}
                   className="font-display text-display-lg text-platinum"
                 >
-                  Crafting digital
+                  Building digital
                 </motion.h1>
               </div>
               <div className="overflow-hidden mb-8">
@@ -156,7 +150,7 @@ export default function AboutPage() {
                   transition={{ duration: 0.8, delay: 0.2, ease: 'power4.out' }}
                   className="font-display text-display-lg text-gradient"
                 >
-                  excellence since 2015
+                  excellence together
                 </motion.h1>
               </div>
               <motion.p
@@ -165,7 +159,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-silver text-body-lg max-w-lg leading-relaxed"
               >
-                We are a team of designers, developers, and strategists united by a passion 
+                We are a team of designers and developers united by a passion 
                 for creating exceptional digital experiences. Our work bridges the gap between 
                 art and technology, delivering results that exceed expectations.
               </motion.p>
@@ -215,15 +209,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline Section */}
+      {/* Timeline Section - How We Build */}
       <section className="relative py-section">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
           <ScrollReveal className="text-center mb-16">
             <span className="text-aurum text-caption font-medium tracking-wider uppercase mb-4 block">
-              Our Journey
+              Our Process
             </span>
             <h2 className="font-display text-display-md text-platinum">
-              Milestones & Moments
+              How we build your website
             </h2>
           </ScrollReveal>
 
@@ -249,7 +243,7 @@ export default function AboutPage() {
                   <div className={`ml-20 lg:ml-0 lg:w-1/2 ${
                     index % 2 === 0 ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'
                   }`}>
-                    <span className="text-aurum font-display text-2xl mb-2 block">{milestone.year}</span>
+                    <span className="text-aurum/40 font-display text-sm mb-2 block">{milestone.step}</span>
                     <h3 className="font-display text-xl text-platinum mb-3">{milestone.title}</h3>
                     <p className="text-silver text-body-md">{milestone.description}</p>
                   </div>
@@ -269,11 +263,11 @@ export default function AboutPage() {
               The Team
             </span>
             <h2 className="font-display text-display-md text-platinum">
-              Meet the minds behind the magic
+              Meet the team
             </h2>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {team.map((member, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
                 <div className="group">

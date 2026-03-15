@@ -17,8 +17,8 @@ import {
   ChevronDown,
   Monitor,
   Smartphone,
-  ShoppingBag,
-  Gauge
+  Globe,
+  Zap
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -41,8 +41,7 @@ export default function ServicesPage() {
         'Market Positioning',
       ],
       deliverables: ['Brand Strategy Document', 'Visual Identity System', 'Brand Guidelines', 'Asset Library'],
-      timeline: '4-6 weeks',
-      price: 'From $15,000',
+      timeline: '1-2 weeks',
     },
     {
       icon: Code2,
@@ -58,8 +57,7 @@ export default function ServicesPage() {
         'Performance Optimization',
       ],
       deliverables: ['Custom Website', 'CMS Setup', 'Documentation', 'Training Session'],
-      timeline: '8-12 weeks',
-      price: 'From $25,000',
+      timeline: '1-2 weeks',
     },
     {
       icon: Sparkles,
@@ -75,8 +73,7 @@ export default function ServicesPage() {
         '3D Motion Graphics',
       ],
       deliverables: ['Animation Library', 'Motion Guidelines', 'Interactive Prototypes', 'Source Files'],
-      timeline: '3-5 weeks',
-      price: 'From $8,000',
+      timeline: '1-2 weeks',
     },
     {
       icon: Layers,
@@ -92,8 +89,41 @@ export default function ServicesPage() {
         'Product Roadmapping',
       ],
       deliverables: ['Product Strategy', 'Design System', 'Interactive Prototype', 'User Research Report'],
-      timeline: '12-16 weeks',
-      price: 'From $40,000',
+      timeline: '2-3 weeks',
+    },
+  ];
+
+  // Different aspects of the $1000 package
+  const aspects = [
+    {
+      icon: Globe,
+      title: 'Custom Domain',
+      description: 'Your own professional domain name (e.g., yourbusiness.com) with SSL certificate included.',
+    },
+    {
+      icon: Monitor,
+      title: '5 Pages',
+      description: 'Home, About, Services, Portfolio/Work, and Contact pages - everything you need.',
+    },
+    {
+      icon: Smartphone,
+      title: 'Mobile Responsive',
+      description: 'Looks perfect on phones, tablets, and desktops with fluid, adaptive layouts.',
+    },
+    {
+      icon: Zap,
+      title: 'Cinematic Animations',
+      description: 'Scroll-triggered animations, hover effects, and smooth page transitions that wow visitors.',
+    },
+    {
+      icon: Code2,
+      title: 'Fast Performance',
+      description: 'Optimized for speed with 90+ Lighthouse scores and sub-second load times.',
+    },
+    {
+      icon: Sparkles,
+      title: 'SEO Ready',
+      description: 'Search engine optimized with proper meta tags, structured data, and best practices.',
     },
   ];
 
@@ -101,55 +131,49 @@ export default function ServicesPage() {
     {
       number: '01',
       title: 'Discovery',
-      description: 'We dive deep into your business, audience, and goals to establish a solid foundation for the project.',
+      description: 'We learn about your business, goals, and vision for the website.',
       icon: Monitor,
     },
     {
       number: '02',
-      title: 'Strategy',
-      description: 'Based on our findings, we develop a comprehensive strategy that aligns with your objectives.',
-      icon: Smartphone,
-    },
-    {
-      number: '03',
       title: 'Design',
-      description: 'We craft pixel-perfect designs that bring the strategy to life with stunning visuals.',
+      description: 'We create mockups and get your approval before building.',
       icon: Palette,
     },
     {
-      number: '04',
+      number: '03',
       title: 'Development',
-      description: 'Our engineers build the solution with clean code, optimized performance, and rigorous testing.',
+      description: 'We build your site with clean code and stunning animations.',
       icon: Code2,
     },
     {
-      number: '05',
+      number: '04',
       title: 'Launch',
-      description: 'We ensure a smooth deployment and provide support as your new experience goes live.',
+      description: 'We deploy your site to your custom domain and hand over the keys.',
       icon: Sparkles,
     },
   ];
 
   const faqs = [
     {
-      question: 'What is your typical project timeline?',
-      answer: 'Project timelines vary based on scope and complexity. A typical brand identity project takes 4-6 weeks, while a full website build ranges from 8-12 weeks. We provide detailed timelines during our proposal phase.',
+      question: 'What is included in the $1000 package?',
+      answer: 'Everything you need to get online: a custom domain, 5 professionally designed pages, mobile-responsive layout, cinematic animations, fast performance, and SEO optimization. No hidden fees.',
     },
     {
-      question: 'How do you handle project communication?',
-      answer: 'We maintain transparent communication through dedicated Slack channels, weekly check-ins, and shared project management tools. You will always know the status of your project and have direct access to our team.',
+      question: 'How long does it take to build?',
+      answer: 'Most websites are completed within 1-2 weeks from start to finish. We work efficiently without sacrificing quality.',
     },
     {
-      question: 'What technologies do you specialize in?',
-      answer: 'We specialize in modern web technologies including Next.js, React, TypeScript, and Tailwind CSS. For animations, we use GSAP, Framer Motion, and Lottie. We also work with various headless CMS platforms.',
+      question: 'What if I need more than 5 pages?',
+      answer: 'We can add additional pages for $100 each. Just let us know what you need during our discovery call.',
     },
     {
-      question: 'Do you offer ongoing support after launch?',
-      answer: 'Yes, we offer maintenance packages and retainer agreements for ongoing support. This includes performance monitoring, security updates, content updates, and continuous improvement based on analytics.',
+      question: 'Do you offer ongoing support?',
+      answer: 'Yes! We offer a $40/month maintenance package that includes hosting, security updates, and minor content changes.',
     },
     {
-      question: 'How do you price your projects?',
-      answer: 'We typically work on a project basis with fixed pricing based on scope. This ensures transparency and eliminates surprises. For ongoing work, we offer monthly retainer arrangements.',
+      question: 'What technologies do you use?',
+      answer: 'We build with Next.js, React, TypeScript, and Tailwind CSS. For animations, we use GSAP and Framer Motion. This ensures your site is fast, modern, and scalable.',
     },
   ];
 
@@ -174,7 +198,7 @@ export default function ServicesPage() {
                 transition={{ duration: 0.8, delay: 0.1, ease: 'power4.out' }}
                 className="font-display text-display-lg text-platinum"
               >
-                Everything you need
+                Premium websites
               </motion.h1>
             </div>
             <div className="overflow-hidden mb-8">
@@ -184,7 +208,7 @@ export default function ServicesPage() {
                 transition={{ duration: 0.8, delay: 0.2, ease: 'power4.out' }}
                 className="font-display text-display-lg text-gradient"
               >
-                to stand out online
+                for $1,000
               </motion.h1>
             </div>
             <motion.p
@@ -193,9 +217,82 @@ export default function ServicesPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-silver text-body-lg max-w-xl leading-relaxed"
             >
-              From brand strategy to web development, we offer comprehensive digital services 
-              designed to elevate your presence and drive measurable results.
+              Everything you need to establish a professional online presence. 
+              Custom domain, stunning design, cinematic animations, and more.
             </motion.p>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="relative py-section border-y border-white/5">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+          <ScrollReveal className="text-center mb-16">
+            <span className="text-aurum text-caption font-medium tracking-wider uppercase mb-4 block">
+              What You Get
+            </span>
+            <h2 className="font-display text-display-md text-platinum">
+              Everything included for $1,000
+            </h2>
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {aspects.map((aspect, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <TiltCard className="h-full">
+                  <div className="group h-full p-8 bg-surface border border-white/5 rounded-2xl hover:border-aurum/30 transition-colors duration-500">
+                    <div className="w-14 h-14 rounded-xl bg-aurum/10 flex items-center justify-center mb-6 group-hover:bg-aurum/20 transition-colors duration-300">
+                      <aspect.icon size={28} className="text-aurum" />
+                    </div>
+                    <h3 className="font-display text-xl text-platinum mb-3">{aspect.title}</h3>
+                    <p className="text-silver text-body-md">{aspect.description}</p>
+                  </div>
+                </TiltCard>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal>
+            <div className="text-center">
+              <MagneticButton>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-aurum text-void rounded-full font-medium hover:shadow-[0_0_40px_rgba(201,169,98,0.4)] transition-shadow duration-500"
+                >
+                  Get Started for $1,000
+                  <ArrowRight size={18} />
+                </Link>
+              </MagneticButton>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="relative py-section">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+          <ScrollReveal className="text-center mb-16">
+            <span className="text-aurum text-caption font-medium tracking-wider uppercase mb-4 block">
+              How It Works
+            </span>
+            <h2 className="font-display text-display-md text-platinum">
+              Simple 4-step process
+            </h2>
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            {process.map((step, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <div className="relative text-center">
+                  <div className="w-16 h-16 rounded-2xl bg-surface border border-white/5 flex items-center justify-center mx-auto mb-6">
+                    <step.icon size={28} className="text-aurum" />
+                  </div>
+                  <span className="text-aurum/40 font-display text-sm mb-2 block">{step.number}</span>
+                  <h3 className="font-display text-lg text-platinum mb-2">{step.title}</h3>
+                  <p className="text-silver text-body-sm">{step.description}</p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
@@ -203,6 +300,15 @@ export default function ServicesPage() {
       {/* Services Detail */}
       <section className="relative py-section border-y border-white/5">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+          <ScrollReveal className="text-center mb-16">
+            <span className="text-aurum text-caption font-medium tracking-wider uppercase mb-4 block">
+              Capabilities
+            </span>
+            <h2 className="font-display text-display-md text-platinum">
+              Additional services
+            </h2>
+          </ScrollReveal>
+
           <div className="grid lg:grid-cols-12 gap-12">
             {/* Service Navigation */}
             <div className="lg:col-span-4">
@@ -286,11 +392,6 @@ export default function ServicesPage() {
                       <span className="text-silver text-body-sm block mb-1">Timeline</span>
                       <span className="font-display text-platinum text-lg">{services[activeService].timeline}</span>
                     </div>
-                    <div className="w-px h-12 bg-white/10 hidden sm:block" />
-                    <div>
-                      <span className="text-silver text-body-sm block mb-1">Investment</span>
-                      <span className="font-display text-aurum text-lg">{services[activeService].price}</span>
-                    </div>
                     <div className="flex-1" />
                     <MagneticButton>
                       <Link
@@ -309,37 +410,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="relative py-section">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
-          <ScrollReveal className="text-center mb-16">
-            <span className="text-aurum text-caption font-medium tracking-wider uppercase mb-4 block">
-              How We Work
-            </span>
-            <h2 className="font-display text-display-md text-platinum">
-              Our proven process
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-5 gap-6">
-            {process.map((step, index) => (
-              <ScrollReveal key={index} delay={index * 0.1}>
-                <div className="relative text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-surface border border-white/5 flex items-center justify-center mx-auto mb-6">
-                    <step.icon size={28} className="text-aurum" />
-                  </div>
-                  <span className="text-aurum/40 font-display text-sm mb-2 block">{step.number}</span>
-                  <h3 className="font-display text-lg text-platinum mb-2">{step.title}</h3>
-                  <p className="text-silver text-body-sm">{step.description}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
-      <section className="relative py-section border-y border-white/5">
+      <section className="relative py-section">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
           <div className="max-w-3xl mx-auto">
             <ScrollReveal className="text-center mb-16">
